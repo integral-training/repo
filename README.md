@@ -1,2 +1,1 @@
-# repo
-MURATA SANJO!!
+OKINAYA
