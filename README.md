@@ -1,1 +1,2 @@
 OKINAYA
+Hokkaido
