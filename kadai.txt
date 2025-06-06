@@ -1,2 +1,3 @@
 たこ　CentOS
 いか　Windous
+help Beast
