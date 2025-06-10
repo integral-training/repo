@@ -10,6 +10,10 @@ int main() {
     // unsigned int* ptr = &x;
     // int y = *ptr; // 逆参照（デリファレンス）
     // *ptr = 50; //ポインタからxの値を変える
+    // std::cout << y << std::endl;
+    // std::cout << "Type of y: " << typeid(y).name() << std::endl; // -> 型確認用
+    // std::cout << *ptr << std::endl;
+    // std::cout << "Type of ptr: " << typeid(*ptr).name() << std::endl; // -> 型確認用
 
     //nullptr -> どの変数も参照していないポインタのこと。
     // int* p = nullptr;
@@ -34,20 +38,76 @@ int main() {
     // //ポインタと参照の違いはなんじゃろな
 
     //参照とポインタの違い模索中のコード
-    int x[5] = {1,2,3,4,5};
-    for (int& value : x) { // 参照を使うことで要素を変更可能
-        std::cout << (value += 2) << std::endl; // 各要素を+2にする
-    }
+    // int x[5] = {1,2,3,4,5};
+    // for (int& value : x) { // 参照を使うことで要素を変更可能
+    //     std::cout << (value += 2) << std::endl; // 各要素を+2にする
+    // }
 
-    for (int* ptr : x) {
-        std::cout << (value += 2) << std::endl;
-    }
+    // for (int* ptr : x) {
+    //     std::cout << (value += 2) << std::endl;
+    // }
 
-    // std::cout << x << std::endl;
-    // std::cout << y << std::endl;
-    // std::cout << r << std::endl;
-    // std::cout << ptr << std::endl;
-    // std::cout << "Type of x: " << typeid(x).name() << std::endl; // -> 型確認用
-    // std::cout << "Type of ptr: " << typeid(ptr).name() << std::endl; // -> 型確認用
+    //代入とポインタと参照の違い
+    int xx = 100;
+    int* p = &xx; // pはポインタ型
+
+    int& r1 = xx; // r1は参照型
+    int  r2 = xx; // r2は代入
+    std::cout << "1:" << xx << std::endl;
+    r1 = r1 + 1;
+    std::cout << "2:" << xx << std::endl;
+    r2 = r2 + 10;
+    std::cout << "3:" << xx << std::endl;
+
+    // 値を表示
+    std::cout << "value xx:" << xx << std::endl; // 100
+    std::cout << "value r1:" << r1 << std::endl; // 101
+    std::cout << "value r2:" << r2 << std::endl; // 100
+    std::cout << "value p:" << p << std::endl;   // 100
+    std::cout << "value p:" << *p << std::endl;   // 100
+    std::cout << "add p:" << &p << std::endl;   // 100
+
+    // value xx:101
+    // value r1:101
+    // value r2:110
+    // value p:0x7fff8a947ca8
+
+    // アドレスを表示
+    std::cout << "addr xx:" << &xx << std::endl;
+    std::cout << "addr r1:" << &r1 << std::endl;
+    std::cout << "addr r2:" << &r2 << std::endl;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    int a = 10;
+
+    int* b = &a;
+    int& c = a;
+    int aa = a;
+    std::cout << b << std::endl; 
+    std::cout << c << std::endl;
+    std::cout << aa << std::endl;
+    std::cout << &a << std::endl;　//　　　　　ベースの住所
+    std::cout << &b << std::endl;　//ポインタ本体は違う住所
+    std::cout << c << std::endl;　//　　　　参照は同じ住所
+    std::cout << &aa << std::endl; //　　　　代入は違う住所
+
+    b += 10;
+    std::cout << a << std::endl; 
+    c += 10;
+    std::cout << a << std::endl; 
+    aa += 10;
+    std::cout << a << std::endl; 
+
     return 0;
 }

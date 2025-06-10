@@ -39,6 +39,11 @@
 * -> int argc: コマンドライン引数の個数を表す
 * -> char* argv[]: コマンドライン引数が格納される
 */
+
+//オーバーロード
+void x(){}
+void x(int x){}
+
 // int main(int argc, char* argv[]) {
 //     for (int i = 0; i < argc; ++i) {
 //         std::cout << "argv[" << i << "]: " << argv[i] << std::endl;
@@ -56,10 +61,10 @@ int Add(int x, int y) {
 }
 
 int main() {
-    auto fp = Add;  // 上記の関数 Add のアドレスを保持する関数ポインタ fp
+    auto fp = Add;  // 関数Addの住所を持ったfp (ポインタ)
     //int (*fp)(int, int) = Add;  // int (*fp)(int, int) -> auto で関数ポインタは楽ちん
-    int result = fp(3, 5);      // 関数ポインタ fp を介して関数 Add が実行される
-    std::cout << result << std::endl;  // 8
+    int result = fp(3, 5);      // 動作は Add(3, 5); と同じ
+    std::cout << result << std::endl;  
 
     return 0;
 }

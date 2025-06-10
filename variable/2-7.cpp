@@ -7,15 +7,24 @@ int main() {
 
     // 演算の対象となるいずれかの値が double ( float )の場合、
     // 他方の値も double ( float ) として変換された上で演算が行われます。
-    // int ix = 100;
-    // int iy = 50;
-    // double dx = 100.0;
-    // double dy = 50.0;
+    int ix = 100;
+    int iy = 50;
+    double dx = 100.0;
+    double dy = 50.0;
     
-    // auto a = ix / iy;  // int = int / int
-    // auto b = ix / dy;  // double = double(intから変換) / double
-    // auto c = dx / iy;  // double = double / double(intから変換)
-    // auto d = dx / dy;  // double = double / double
+    auto a = ix / iy;  // int = int / int
+    auto b = ix / dy;  // double = double(intから変換) / double
+    auto c = dx / iy;  // double = double / double(intから変換)
+    auto d = dx / dy;  // double = double / double
+
+    std::cout << a << std::endl;
+    std::cout << "Type of a: " << typeid(a).name() << std::endl; // -> 型確認用
+    std::cout << b << std::endl;
+    std::cout << "Type of b: " << typeid(b).name() << std::endl; // -> 型確認用
+    std::cout << c << std::endl;
+    std::cout << "Type of c: " << typeid(c).name() << std::endl; // -> 型確認用
+    std::cout << d << std::endl;
+    std::cout << "Type of d: " << typeid(d).name() << std::endl; // -> 型確認用
 
     //ビットの計算
     //~x      // 否定
@@ -39,10 +48,10 @@ int main() {
     // std::cout << (bits_a | bits_b) << std::endl;  // 論理和: 00111111
     // std::cout << (bits_a ^ bits_b) << std::endl;  // 排他的論理和: 00110011
 
-    int b = 10 + 20 * 4;
-    b /= 5; 
+    // int b = 10 + 20 * 4;
+    // b /= 5; 
 
-    std::cout << b << std::endl;
-    std::cout << "Type of b: " << typeid(b).name() << std::endl; // -> 型推論確認用
+    // std::cout << b << std::endl;
+    // std::cout << "Type of b: " << typeid(b).name() << std::endl; // -> 型推論確認用
     return 0;
 }
