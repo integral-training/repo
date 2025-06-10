@@ -2,8 +2,16 @@
 
 int main() {
     //bool型　->　真偽値
-    //bool x = true;
+    bool x = true;
     //bool y = false;
+
+    if( x == false){
+        std::cout << "false" << std::endl;
+    }else{
+        std::cout << "true" << std::endl;
+    }
+
+
 
     //char型 -> ''で一文字を扱う。小さな文字や値を扱うのに適している
     //char x = 'w';
@@ -26,8 +34,12 @@ int main() {
     //サイズ指定付き整数型を使用する場合は #include <cstdint> と記述する必要がある。
     //int -> signed , unit ->  unsigned
     // #include <cstdint>
-    // std::int16_t x = 5; //typeid　⇒　Type of x: s
-    // std::int32_t x = 5; //typeid　⇒　Type of x: i
+    std::int16_t xx = 5; //typeid　⇒　Type of x: s
+    std::int32_t yy = 15; //typeid　⇒　Type of x: i
+    std::int64_t zz = 50; //typeid　⇒　Type of x: i
+    std::cout << "Type of xx: " << typeid(xx).name() << std::endl; // -> 型確認用
+    std::cout << "Type of yy: " << typeid(yy).name() << std::endl; // -> 型確認用
+    std::cout << "Type of zz: " << typeid(zz).name() << std::endl; // -> 型確認用
 
     //enum 列挙型名{定数...}　-> 名前を付けた定数の集合を扱う。値を指定しなければ、１ずつ順に割り振られる。
     //定数をまとめて管理するから可読性が向上するとか。
@@ -51,10 +63,10 @@ int main() {
     //enum -> 定数の名前は被り問題あり　, enum class -> 定数の名前は被り問題なし
 
 
-    std::cout << x << std::endl;
-    std::cout << collar << std::endl;
-    // std::cout << y << std::endl;
-    std::cout << "Type of x: " << typeid(x).name() << std::endl; // -> 型確認用
+    // std::cout << x << std::endl;
+    // std::cout << collar << std::endl;
+    // // std::cout << y << std::endl;
+    // std::cout << "Type of x: " << typeid(x).name() << std::endl; // -> 型確認用
     // std::cout << "Type of y: " << typeid(y).name() << std::endl; // -> 型確認用
 
     // std::cout << z << std::endl;
