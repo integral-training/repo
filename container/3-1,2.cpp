@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string> // 文字列を使うときのお呪い
+#include <array> // 高性能な配列を使うお呪い
 
 void kansu(const int* n, std::size_t num);  // 前方宣言
 
@@ -15,15 +17,14 @@ int main() {
     std::cout << z[3] << std::endl;   
 
 
-    #include <string> // 文字列を使うときのお呪い
     std::string s = "Hello"; // char型 の配列として扱われる
     std::cout << s[0] << std::endl; // H
     std::cout << s[1] << std::endl; // e
     std::cout << s[4] << std::endl; // o
-    std::cout << s.size() << std::endl; // s.size() で文字列数を取得できる
+    std::cout << "文字列サイズは" << s.size() << std::endl; // s.size() で文字列数を取得できる
 
 
-    //配列のポインタ　->　配列の先頭を指し示すポインタが取得できる。indexは + で指定する。
+    //配列のポインタ　->　配列の先頭を指し示すポインタが取得できる。要素番号は + で指定する。
     int w[5] = {1, 2, 3, 4};
     int* ww = w;
     std::cout << *ww << std::endl; 
@@ -36,14 +37,20 @@ int main() {
     int n[num] = {0, 1, 2, 3, 4}; //配列
     kansu(n, num); //要素数と配列を渡す
 
-    // std::array はあとで
+
+    // std::array -> 高性能な配列
+    std::array<int, 5> xxx = {0, 1, 2, 3, 4}; //x は要素数が５であるような int型の配列になります。 
+    xxx[3] = 10;
+    std::cout << "高性能な数：" <<xxx.size() << std::endl;
+    std::cout << "高性能の４番目：" << xxx[3] << std::endl;
+
 
     return 0;
 }
 
 void kansu(const int* n, std::size_t num){
     for (std::size_t i = 0; i < num; ++i) {
-        std::cout << n[i] << std::endl;
+        std::cout << i <<  "番目は" << n[i] << std::endl;
     }
 }
 
