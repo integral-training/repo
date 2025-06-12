@@ -16,6 +16,12 @@ int main() {
     z[0] = 1; z[1] = 2; z[2] = 3; z[3] = 4; z[4] = 5;
     std::cout << z[3] << std::endl;   
 
+    // 配列の範囲for文
+    // int x[] = {0, 1, 2, 3, 4};
+    // for (auto&& e : x) {
+    //     std::cout << e << std::endl;
+    // }
+
 
     std::string s = "Hello"; // char型 の配列として扱われる
     std::cout << s[0] << std::endl; // H
@@ -30,12 +36,11 @@ int main() {
     std::cout << *ww << std::endl; 
     std::cout << *(ww + 3) << std::endl; 
 
-
     // 関数に配列を渡す
     // 配列の先頭要素へのポインタ と 要素数 をセットで渡す必要がある。要素数の情報が欠落するため。
     const std::size_t num = 5;  //要素数
     int n[num] = {0, 1, 2, 3, 4}; //配列
-    kansu(n, num); //要素数と配列を渡す
+    kansu(n, num); //配列と要素数を渡す
 
 
     // std::array -> 高性能な配列

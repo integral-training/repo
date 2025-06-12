@@ -3,6 +3,7 @@
 // タプルとは、複数の値をひとまとめに扱える 型 です。配列と異なり、全ての要素が同じ型で揃える必要がない。
 
 #include <tuple> // タプルのお呪い
+#include <utility> // ペアのお呪い
 int main(){
 std::tuple<std::string, int, std::string> person { "Bob", 20, "USA" }; // string型と整数型がセットで入ってる
 // std::tuple< この中で各要素の型を指定する > person { "Bob", 20, "USA" };
@@ -35,7 +36,6 @@ std::tuple<std::string, int> personC = std::make_tuple("Bob", 20);
 
 
 //ペアは２つの値をひとまとめにして扱う 型 です。タプルと同じ。
-#include <utility> // ペアのお呪い
 std::pair<std::string, int> pear {"梨", 24};
 std::get<0>(pear);
 std::get<1>(pear);
