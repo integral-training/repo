@@ -26,6 +26,7 @@ namespace O {
         }
 
         int Get(){
+            // namespace P に存在しない変数は外側のnamespaceを参照する
             return touch;
         }
     }
@@ -47,7 +48,7 @@ int main(){
     std::cout << O::P::Catch() << std::endl;
     std::cout << O::P::Get() << std::endl; // 見つからない値は外側を参照するようになる
 
-    std::cout << ::xy << std::endl; // 明示的にグローバルスコープを指定出来たり
+    std::cout << ::xy << std::endl; // 明示的にグローバルスコープを指定出来る
 
     return 0;
 }

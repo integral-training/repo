@@ -43,7 +43,7 @@ void Hello() {
     std::cout << "Hello World!" << std::endl;
 }
 
-// void Hello() {  // 重複のためエラー
+// void Hello() {  // これを書くと重複のためエラー
 void Hello(int n) {
     std::cout << "Hello World!!!!!!" << std::endl;
 }
