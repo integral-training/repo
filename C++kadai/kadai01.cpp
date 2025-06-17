@@ -1,15 +1,13 @@
 #include <iostream>
 
 int main(){
-    int x = 0;
+    int x = 0; // ローカル変数
     int y = 0;
 
     std::cout << "縦のサイズ（行数）を入力してください：";
     std::cin >> x;
-    std::cout << x << std::endl; // 入力値表示
     std::cout << "横のサイズ（列数）を入力してください：";
     std::cin >> y;
-    std::cout << y << std::endl; // 入力値表示
     std::cout << "出力結果：" << std::endl;
 
     for(int i = 0; i < x ; i++){
