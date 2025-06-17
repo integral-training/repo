@@ -14,8 +14,7 @@ class Student{
 
     Student(std::string w, int x, int y, int z);
     void printScores();
-    int average();
-    // void average(); // なんでだめ？
+    double average();
 };
 
 #endif  // MYHEADER_H //インクルードガード

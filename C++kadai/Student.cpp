@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
-#include "test.h"
+#include "Student.h"
+// ヘッダーをよく見ること！！
 
 // 定義だけ
 Student::Student(std::string w, int x, int y, int z): str(w), num(x), num1(y), num2(z) {};
@@ -14,10 +14,7 @@ void Student::printScores(){
     std::cout << "英語：" << num2 << std::endl;
 };
 
-int Student::average(){
+double Student::average(){
     double av =  (num + num1 + num2) / 3.0;
-    std::cout << "平均点: " << av << "点" << std::endl; // 関数内で出力するように
-    return 0;
+    return av;
 };
-
-    // return static_cast<double>(num + num1 + num2) / 3.0; // 試し打ち

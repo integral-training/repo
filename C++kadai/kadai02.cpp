@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 #include "Student.h"
+// ヘッダーをよく見ること！
 
 int main() {
     std::string name;
@@ -24,9 +24,7 @@ int main() {
 
     std::cout << "\n--- 生徒の成績 ---\n";
     student.printScores();
-    student.average(); // 変更
-    // std::cout << "平均点: " << student.average() << "点" << std::endl; // 既存の呼び出し
-
-    // return 0;
+    std::cout << "平均点: " << student.average() << "点" << std::endl;
+    return 0;
 }
 
