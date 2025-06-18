@@ -4,7 +4,8 @@
 #ifndef MYHEADER_H //インクルードガード
 #define MYHEADER_H //インクルードガード
 
-class Student{
+class Student
+{
     public:
     int jph; // ヘッダー版国語
     int mah; // ヘッダー版算数
