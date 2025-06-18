@@ -16,11 +16,11 @@ int main()
 
     // 条件式のiが行数より小さい間、列数分の*を出力し続け、
     // もし列数分に達したら改行し、再び次の行から列数分の出力を繰り返す処理。
-    for (int i = 0; i < row ; i++) 
+    for (int i = 0; i < row; i++) 
     {
-        for (int j = 0; j < column ; j++) 
+        for (int j = 0; j < column; j++) 
         {
-            if (j == column-1) 
+            if (j == column - 1) 
             {
                 std::cout << "*" << std::endl;
             } 
