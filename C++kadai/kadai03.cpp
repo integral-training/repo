@@ -2,7 +2,7 @@
 #include <random> // 乱数生成用
 #include <vector> // ベクタ用
 
-int main() 
+int main()
 {
     // 乱数エンジンと分布を設定
     std::random_device rd; // 非決定的な乱数生成器
@@ -17,7 +17,7 @@ int main()
     std::cout << "1〜100の間の数字を当ててください。" << std::endl;
 
     // 入力値が乱数と等しくなるまでループ処理
-    do 
+    do
     {
         std::cout << "数字を入力してください: ";
         std::cin >> input; // 入力値を変数inputに代入
@@ -28,30 +28,30 @@ int main()
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         // もし入力値が乱数と等しいなら
-        if (input == ranNum) 
+        if (input == ranNum)
         {
             std::cout << "正解です！ " << inputList.size() << " 回目で当たりました！" << std::endl;
             std::cout << std::endl; // 空行
             std::cout << "あなたの入力履歴: ";
 
             // 配列から値を取り出し続け、配列の最後の値を出力するときに改行するfor文
-            for (int i = 0; i < inputList.size(); i++) 
+            for (int i = 0; i < inputList.size(); i++)
             {
-                if (i == inputList.size() - 1) 
+                if (i == inputList.size() - 1)
                 {
                     std::cout << inputList[i] << std::endl;
                 }
-                else 
+                else
                 {
                     std::cout << inputList[i] << ", ";
                 }
             }
         }
-        else if(input > ranNum) // 入力値が乱数より大きいとき
+        else if (input > ranNum) // 入力値が乱数より大きいとき
         {
             std::cout << "もっと小さいです！" << std::endl;
         }
-        else if(input < ranNum) // 入力値が乱数より小さいとき
+        else if (input < ranNum) // 入力値が乱数より小さいとき
         {
             std::cout << "もっと大きいです！" << std::endl;
         }

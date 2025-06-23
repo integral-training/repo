@@ -2,7 +2,8 @@
 #include <string>
 #include "Student.h"
 
-int main() {
+int main()
+{
     std::string name; // 名前
     int jp, ma, en; // 国語、数学、英語
 
