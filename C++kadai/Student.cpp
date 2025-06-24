@@ -4,8 +4,8 @@
 // Student.hを介して引数を受け取り、メンバ変数の初期化コンストラクタ
 Student::Student(std::string name, int jp, int ma, int en)
     : m_name(name), m_jp(jp), m_ma(ma), m_en(en)
-    {
-    }
+{
+}
 
 // 名前、各教科の点数を出力
 void Student::printScores()
