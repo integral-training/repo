@@ -1,77 +1,8 @@
 #include <iostream>
 #include <limits> // cin初期化に関係
-
-class IShape // インターフェース
-{
-    public:
-    virtual double calculateArea() const = 0; // 面積計算
-    virtual double calculatePerimeter() const = 0; // 外周の長さ計算
-};
-
-class Circle : public IShape // 円クラス
-{
-    public:
-    Circle(double inputRadius) : radius(inputRadius)
-    {
-    }
-
-    double calculateArea() const override // 円の面積
-    {
-        return 3.14159 * (radius * radius);
-    }
-
-    double calculatePerimeter() const override // 円の外周の長さ
-    {
-        return (3.14159 * 2) * radius;
-    }
-
-    private:
-    double radius = 0.0; // 半径
-};
-
-class Rectangle : public IShape // 短形クラス
-{
-    public:
-    Rectangle(double inputVertical, double inputWidth) : vertical(inputVertical), width(inputWidth)
-    {
-    }
-
-    double calculateArea() const override // 短形の面積
-    {
-        return vertical * width;
-    }
-
-    double calculatePerimeter() const override // 短形の外周の長さ
-    {
-        return (width + vertical) * 2;
-    }
-
-    private:
-    double vertical = 0.0; // 縦の長さ
-    double width = 0.0; // 横の長さ
-};
-
-class Square : public IShape // 正方形クラス
-{
-    public:
-    Square(double inputLength) : length(inputLength)
-    {
-    }
-
-    double calculateArea() const override // 正方形の面積
-    {
-        return length * length;
-    }
-
-    double calculatePerimeter() const override // 正方形の外周の長さ
-    {
-        return 4 * length;
-    }
-
-    private:
-    double length = 0.0; // 1辺の長さ
-};
-
+#include "kadai04.circle.h"
+#include "kadai04.rectangle.h"
+#include "kadai04.square.h"
 
 int main()
 {
@@ -100,13 +31,13 @@ int main()
             {
                 std::cout << "半径を入力してください: ";
                 std::cin >> constNumA;
-
-                if (std::cin.fail() || constNumA < 0.0)
+                while(std::cin.fail() || constNumA < 0.0)
                 {
-                    std::cout << "無効な入力です。数値で選択してください。" << std::endl;
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    break;
+                    std::cout << "無効な入力です。数値で選択してください。" << std::endl;
+                    std::cout << "半径を入力してください: ";
+                    std::cin >> constNumA;
                 }
 
                 Circle circle(constNumA);
@@ -119,24 +50,24 @@ int main()
             {
                 std::cout << "縦の長さを入力してください: "; // 縦を入力してください: から変更
                 std::cin >> constNumA;
-
-                if (std::cin.fail() || constNumA < 0.0)
+                while(std::cin.fail() || constNumA < 0.0)
                 {
-                    std::cout << "無効な入力です。数値で選択してください。" << std::endl;
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    break;
+                    std::cout << "無効な入力です。数値で選択してください。" << std::endl;
+                    std::cout << "縦の長さを入力してください: ";
+                    std::cin >> constNumA;
                 }
 
                 std::cout << "横の長さを入力してください: "; // 横を入力してください: から変更
                 std::cin >> constNumB;
-
-                if (std::cin.fail() || constNumB < 0.0)
+                while(std::cin.fail() || constNumB < 0.0)
                 {
-                    std::cout << "無効な入力です。数値で選択してください。" << std::endl;
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    break;
+                    std::cout << "無効な入力です。数値で選択してください。" << std::endl;
+                    std::cout << "横の長さを入力してください: ";
+                    std::cin >> constNumB;
                 }
 
                 Rectangle rectangle(constNumA, constNumB);
@@ -149,13 +80,13 @@ int main()
             {
                 std::cout << "1辺の長さを入力してください: ";
                 std::cin >> constNumA;
-
-                if (std::cin.fail() || constNumA < 0.0)
+                while(std::cin.fail() || constNumA < 0.0)
                 {
-                    std::cout << "無効な入力です。数値で選択してください。" << std::endl;
                     std::cin.clear();
                     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                    break;
+                    std::cout << "無効な入力です。数値で選択してください。" << std::endl;
+                    std::cout << "1辺の長さを入力してください: ";
+                    std::cin >> constNumA;
                 }
                 
                 Square square(constNumA);
