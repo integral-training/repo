@@ -25,7 +25,7 @@ int main()
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-        switch (inputNum) 
+        switch (inputNum)
         {
             case 1: // 円
             {
@@ -107,7 +107,7 @@ int main()
                 std::cout << "無効な入力です。数値で選択してください。" << std::endl;
                 break;
             }
-        }      
+        }
     } while(loop);
 
     return 0;
