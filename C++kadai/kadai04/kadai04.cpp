@@ -1,9 +1,9 @@
 #include <iostream>
+#include <string> // チェック関数用
 #include <limits> // cin初期化に関係
 #include "Circle.h"
 #include "Rectangle.h"
 #include "Square.h"
-#include <string> // チェック関数用
 
 // 各クラスに渡す値の入力チェック処理
 double inputCheck(std::string message) //  引数は各図形の入力促すメッセージ
@@ -31,18 +31,6 @@ double inputCheck(std::string message) //  引数は各図形の入力促すメ�
 void calcCircle() // 円の場合
 {
     double inputRadius = inputCheck("半径を入力してください: "); // 半径入力
-    // std::cout << "半径を入力してください: ";
-    // std::cin >> inputRadius;
-
-    // 入力値をチェック関数を経由して変数に代入する
-    // while(std::cin.fail() || inputRadius < 0.0)
-    // {
-    //     std::cin.clear();
-    //     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //     std::cout << "無効な入力です。数値で選択してください。" << std::endl;
-    //     std::cout << "半径を入力してください: ";
-    //     std::cin >> inputRadius;
-    // }
 
     Circle circle(inputRadius);
     std::cout << "面積: " << circle.calculateArea() << std::endl;
@@ -52,28 +40,8 @@ void calcCircle() // 円の場合
 void calcRectangle() // 短形の場合
 {
     double inputVertical = inputCheck("縦の長さを入力してください: "); // 縦長入力
-    // std::cout << "縦の長さを入力してください: ";
-    // std::cin >> inputVertical;
-    // while(std::cin.fail() || inputVertical < 0.0)
-    // {
-    //     std::cin.clear();
-    //     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //     std::cout << "無効な入力です。数値で選択してください。" << std::endl;
-    //     std::cout << "縦の長さを入力してください: ";
-    //     std::cin >> inputVertical;
-    // }
 
     double inputWidth = inputCheck("横の長さを入力してください: "); // 横長入力
-    // std::cout << "横の長さを入力してください: ";
-    // std::cin >> inputWidth;
-    // while(std::cin.fail() || inputWidth < 0.0)
-    // {
-    //     std::cin.clear();
-    //     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //     std::cout << "無効な入力です。数値で選択してください。" << std::endl;
-    //     std::cout << "横の長さを入力してください: ";
-    //     std::cin >> inputWidth;
-    // }
 
     Rectangle rectangle(inputVertical, inputWidth);
     std::cout << "面積: " << rectangle.calculateArea() << std::endl;
@@ -83,33 +51,23 @@ void calcRectangle() // 短形の場合
 void calcSquare() // 正方形の場合
 {
     double inputLength = inputCheck("1辺の長さを入力してください: "); // 辺長入力
-    // std::cout << "1辺の長さを入力してください: ";
-    // std::cin >> inputLength;
-    // while(std::cin.fail() || inputLength < 0.0)
-    // {
-    //     std::cin.clear();
-    //     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    //     std::cout << "無効な入力です。数値で選択してください。" << std::endl;
-    //     std::cout << "1辺の長さを入力してください: ";
-    //     std::cin >> inputLength;
-    // }
                         
     Square square(inputLength);
     std::cout << "面積: " << square.calculateArea() << std::endl;
     std::cout << "周の長さ: " << square.calculatePerimeter() << std::endl;
 }
 
+enum SHARP_TYPE : int // 選択肢
+{
+    CIRCLE    = 1, // 円
+    RECTANGLE = 2, // 矩形
+    SQUARE    = 3, // 正方形
+    END       = 4  // 終了
+};
+
 int main()
 {
     bool loop = true; // do-while条件
-
-    enum SHARP_TYPE : int // 選択肢
-    {
-        CIRCLE    = 1, // 円
-        RECTANGLE = 2, // 矩形
-        SQUARE    = 3, // 正方形
-        END       = 4  // 終了
-    };
 
     do
     {

@@ -8,11 +8,11 @@ int main()
     bool loop = true; // do-while条件
     enum SHARP_TYPE : int // 選択肢
     {
-        CIRCLE    = 1, // 着信
-        RECTANGLE = 2, // 発信
-        SQUARE    = 3, // 受話
-        END       = 4, // 通話終了
-        OFF       = 5  // 電源OFF
+        INCOMING    = 1, // 着信
+        CALLING     = 2, // 発信
+        ANSWER      = 3, // 受話
+        END         = 4, // 通話終了
+        OFF         = 5  // 電源OFF
     };
 
     std::cout << "携帯電話ステートマシン" << std::endl;
