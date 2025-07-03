@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits> // cin初期化に関係
+
 enum TELEPHONE_ACTION : int // 電話の動作
 {
     INCOM   = 1, // 着信
@@ -8,17 +9,20 @@ enum TELEPHONE_ACTION : int // 電話の動作
     END     = 4, // 通話終了
     OFF     = 5  // 電源OFF
 };
+
 enum TELEPHONE_STATUS : int // 電話の状態
 {
     IDLE        = 1, // 待機中
     CALLING     = 2, // 発信中
     INCOMING    = 3, // 着信中
-    ONCALLING   = 4, // 通話中
+    ONCALLING   = 4  // 通話中
 };
+
 // 定型文関数。引数に電話の状態を受け取る。
 int inputTelephoneAction(const int status)
 {
     int inputAction = 0; // 電話の動作を決める入力値
+
     while (true)
     {
         std::string message = "[状態] ";
@@ -71,7 +75,8 @@ int inputTelephoneAction(const int status)
     }
     return inputAction;
 }
-// 1 = 着信動作。電話の状態を受け取り、遷移可能な状態かによって処理が分岐
+
+// 着信動作。電話の状態を受け取り、遷移可能な状態かによって処理が分岐
 void actionIncoming(int& currentTelStatus)
 {
     // 待機状態なら着信に遷移可
@@ -85,7 +90,8 @@ void actionIncoming(int& currentTelStatus)
         std::cout << "着信できるのは待機中のみです。" << std::endl;
     }
 }
-// 2 = 発信動作。電話の状態を受け取り、遷移可能な状態かによって処理が分岐
+
+// 発信動作。電話の状態を受け取り、遷移可能な状態かによって処理が分岐
 void actionCalling(int& currentTelStatus)
 {
     // 待機状態なら発信に遷移可
@@ -99,7 +105,8 @@ void actionCalling(int& currentTelStatus)
         std::cout << "発信できるのは待機中のみです。" << std::endl;
     }
 }
-// 3 = 受話動作。電話の状態を受け取り、遷移可能な状態かによって処理が分岐
+
+// 受話動作。電話の状態を受け取り、遷移可能な状態かによって処理が分岐
 void actionReceiving(int& currentTelStatus)
 {
     // 着信状態 or 発信状態なら通話に遷移可
@@ -113,7 +120,8 @@ void actionReceiving(int& currentTelStatus)
         std::cout << "受話できるのは着信中または発信中のみです。" << std::endl;
     }
 }
-//通話終了動作。電話の状態を受け取り、遷移可能な状態かによって処理が分岐
+
+// 通話終了動作。電話の状態を受け取り、遷移可能な状態かによって処理が分岐
 void actionEnd(int& currentTelStatus)
 {
     // 通話状態なら待機に遷移可
@@ -127,12 +135,15 @@ void actionEnd(int& currentTelStatus)
         std::cout << "現在通話中ではありません。" << std::endl;
     }
 }
+
 int main()
 {
     int action = 0; // 関数から受け取る行動値
     bool loop = true; // do-while条件
     int currentTelStatus = TELEPHONE_STATUS::IDLE; // 初期状態は待機中
+    
     std::cout << "携帯電話ステートマシン" << std::endl;
+
     while (loop)
     {
         action = inputTelephoneAction(currentTelStatus); // 電話の状態を定型文関数に渡す
