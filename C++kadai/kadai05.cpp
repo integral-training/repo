@@ -46,6 +46,7 @@ int inputTelephoneAction(const int status)
         {
             message += "不明";
         }
+        
         std::cout << message << std::endl;
         std::cout << std::endl;
         std::cout << "操作を選んでください:" << std::endl;
@@ -56,6 +57,7 @@ int inputTelephoneAction(const int status)
         std::cout << "5. 電源OFF" << std::endl;
         std::cout << "番号を入力: ";
         std::cin >> inputAction;
+
         if (std::cin.fail())
         {
             std::cin.clear();
